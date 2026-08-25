@@ -1,0 +1,47 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ml-foundations-labs"
+version = "0.1.0"
+description = "ML Foundations laboratory exercises"
+requires-python = ">=3.13"
+dependencies = [
+    "numpy",
+    "scikit-learn",
+    "matplotlib",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "ruff",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_functions = ["test_*"]
+addopts = [
+    "-ra",
+    "--strict-markers",
+]
+
+[tool.ruff]
+target-version = "py313"
+line-length = 88
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = [
+    "E",   
+    "F",   
+    "I",   
+    "B", 
+    "UP",  
+]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
